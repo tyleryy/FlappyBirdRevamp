@@ -8,7 +8,7 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D myRigidBody;
 
     // Start is called before the first frame update
-    void Start()
+    void Start() 
     {
     }
 
