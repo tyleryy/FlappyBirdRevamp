@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// prefab gameObject to be used in PipeSpawn
 public class PipeMoveScript : MonoBehaviour
 {
 
