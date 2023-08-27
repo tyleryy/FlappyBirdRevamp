@@ -6,7 +6,7 @@ public class BirdScript : MonoBehaviour
 {
 
     public Rigidbody2D myRigidBody; // reference to components on gameObject
-    public float flapStrength; // variable
+    public float flapStrength = 20; // variable
 
     // Start is called before the first frame update
     void Start()
