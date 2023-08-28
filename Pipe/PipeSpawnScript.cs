@@ -5,13 +5,15 @@ using UnityEngine;
 public class PipeSpawnScript : MonoBehaviour
 {
     public GameObject pipe;
-    public float spawnRate = 5;
+    public float spawnRate = 2;
     private float timer = 0;
     public float heightOffset = 10;
 
-    // Start is called before the first frame update
+    // start pipe spawner and set speed to 10
+    // spawn a pipe
     void Start()
     {
+        startPipes();
         spawnPipe();
     }
 
@@ -31,6 +33,24 @@ public class PipeSpawnScript : MonoBehaviour
         // transform hooks into the GameObject's position and rotation / transform component
     }
 
+    // gets all existing pipes and stops them from moving (by tag search)
+    public void stopPipes()
+    {
+        foreach (GameObject pipe in GameObject.FindGameObjectsWithTag("pipe"))
+        {
+            pipe.GetComponent<PipeMoveScript>().moveSpeed = 0;
+        }
+        this.gameObject.SetActive(false);
+    }
+
+    // sets pipe GameObject speed back to 10 and PipeSpawner back to active
+    public void startPipes()
+    {
+        // pipe.GetComponent<PipeMoveScript>().stopPipes();
+        pipe.GetComponent<PipeMoveScript>().moveSpeed = 10;
+        this.gameObject.SetActive(true);
+    }
+
     void spawnPipe()
     {
 
@@ -38,5 +58,6 @@ public class PipeSpawnScript : MonoBehaviour
         float highestPoint = transform.position.y + heightOffset;
 
         Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), transform.position.z), transform.rotation);
+        // pipes.Add(newPipe);
     }
 }

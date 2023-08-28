@@ -6,7 +6,7 @@ public class BirdScript : MonoBehaviour
 {
 
     public Rigidbody2D myRigidBody; // reference to components on gameObject
-    public float flapStrength = 20; // variable
+    public float flapStrength; // variable
     public LogicScript logic; // ties to logic manager
     public bool birdIsAlive = true;
 
